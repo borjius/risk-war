@@ -10,10 +10,9 @@
 	<context:annotation-config />
 	
 	<!-- Scan components for annotations within the configured package -->
-<!-- 	<context:component-scan base-package="com.risk.backend" /> -->
+	<context:component-scan base-package="com.risk.war.backend.service" />
 	
 	<context:property-placeholder location="risk_war_backend.properties" />
-	
           
           
 </beans>

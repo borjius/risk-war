@@ -10,6 +10,9 @@
 	<properties>
 		<org.slf4j.version>1.7.10</org.slf4j.version>
 		<org.springframework.version>4.1.4.RELEASE</org.springframework.version>
+		<version.org.apache.cxf>3.0.3</version.org.apache.cxf>
+		<com.sun.jersey.version>1.10</com.sun.jersey.version>
+		<com.fasterxml.jackson.core.version>2.2.3</com.fasterxml.jackson.core.version>
 	</properties>
 
 	<build>
@@ -27,6 +30,15 @@
 
 	</build>
 
+	<repositories>
+		<repository>
+			<id>maven2-repository.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -34,12 +46,37 @@
 				<artifactId>slf4j-api</artifactId>
 				<version>${org.slf4j.version}</version>
 			</dependency>
+			
+			<dependency>
+				<groupId>com.fasterxml.jackson.core</groupId>
+				<artifactId>jackson-databind</artifactId>
+				<version>${com.fasterxml.jackson.core.version}</version>
+			</dependency>
+			
+			<!-- Jersey -->
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-server</artifactId>
+				<version>${com.sun.jersey.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.jersey</groupId>
+				<artifactId>jersey-core</artifactId>
+				<version>${com.sun.jersey.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sun.jersey.contribs</groupId>
+				<artifactId>jersey-simple-server</artifactId>
+				<version>${com.sun.jersey.version}</version>
+			</dependency>
+			
+
 			<!-- spring -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${org.springframework.version}</version>
-		</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
