@@ -30,7 +30,6 @@ public class LoginServiceImpl{
 	public void login(InputStream data) throws JsonParseException, JsonMappingException, IOException {
 		LoginBean loginBean = Utils.mapLoginBean(data);
 		log.info("Trying to log with username: " + loginBean.getUsername());
-		System.out.println("login: " + loginBean.getUsername());
 	}
 
 }

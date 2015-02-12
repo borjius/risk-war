@@ -9,6 +9,7 @@
 
 	<properties>
 		<org.slf4j.version>1.7.10</org.slf4j.version>
+		<ch.qos.logback.version>1.0.13</ch.qos.logback.version>
 		<org.springframework.version>4.1.4.RELEASE</org.springframework.version>
 		<version.org.apache.cxf>3.0.3</version.org.apache.cxf>
 		<com.sun.jersey.version>1.10</com.sun.jersey.version>
@@ -46,13 +47,19 @@
 				<artifactId>slf4j-api</artifactId>
 				<version>${org.slf4j.version}</version>
 			</dependency>
-			
+
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${ch.qos.logback.version}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-databind</artifactId>
 				<version>${com.fasterxml.jackson.core.version}</version>
 			</dependency>
-			
+
 			<!-- Jersey -->
 			<dependency>
 				<groupId>com.sun.jersey</groupId>
@@ -69,7 +76,7 @@
 				<artifactId>jersey-simple-server</artifactId>
 				<version>${com.sun.jersey.version}</version>
 			</dependency>
-			
+
 
 			<!-- spring -->
 			<dependency>

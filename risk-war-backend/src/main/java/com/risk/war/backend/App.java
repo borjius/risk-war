@@ -30,7 +30,7 @@ public class App {
 		try {
 			log.info("Application starting...");
 			App.createContext(DEFAULT_CONTEXT);
-			System.out.println("Initialization done");
+			log.info("Initialization done");
 			createJaxServer();
 		} catch (Throwable ex) {
 			log.error("Unhandled exception. Terminating application.", ex);
@@ -62,7 +62,7 @@ public class App {
 		Closeable server = null;
 		try {
 			server = SimpleServerFactory.create("http://localhost:5555");
-			System.out.println("Server started on port 5555...");
+			log.info("Server started on port 5555...");
 			System.in.read();
 		} catch (Exception e) {
 			e.printStackTrace();
