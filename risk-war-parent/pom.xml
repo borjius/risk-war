@@ -13,7 +13,7 @@
 		<org.springframework.version>4.1.4.RELEASE</org.springframework.version>
 		<version.org.apache.cxf>3.0.3</version.org.apache.cxf>
 		<com.sun.jersey.version>1.10</com.sun.jersey.version>
-		<com.fasterxml.jackson.core.version>2.2.3</com.fasterxml.jackson.core.version>
+		<com.fasterxml.jackson.core.version>2.5.1</com.fasterxml.jackson.core.version>
 	</properties>
 
 	<build>
@@ -59,6 +59,11 @@
 				<artifactId>jackson-databind</artifactId>
 				<version>${com.fasterxml.jackson.core.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.jaxrs</groupId>
+				<artifactId>jackson-jaxrs-json-provider</artifactId>
+				<version>${com.fasterxml.jackson.core.version}</version>
+			</dependency>
 
 			<!-- Jersey -->
 			<dependency>
@@ -84,6 +89,7 @@
 				<artifactId>spring-context</artifactId>
 				<version>${org.springframework.version}</version>
 			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
 
