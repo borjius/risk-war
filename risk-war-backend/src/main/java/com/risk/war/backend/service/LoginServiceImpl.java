@@ -3,6 +3,7 @@ package com.risk.war.backend.service;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.slf4j.Logger;
@@ -19,8 +20,11 @@ public class LoginServiceImpl{
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public void login(LoginBean loginBean) {
+	@Produces(MediaType.APPLICATION_JSON)
+	public boolean login(LoginBean loginBean) {
 		log.info("Trying to log with username: " + loginBean.getUsername());
+		// hardcoded
+		return true;
 	}
 
 }
