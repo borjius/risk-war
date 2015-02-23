@@ -12,6 +12,7 @@
 	<modules>
 		<module>risk-war-parent</module>
 		<module>risk-war-backend</module>
+    <module>risk-war-model</module>
   </modules>
 
 </project>

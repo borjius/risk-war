@@ -8,12 +8,17 @@
 	<name>RISK :: WAR :: parent</name>
 
 	<properties>
+		<risk.version>1.0-SNAPSHOT</risk.version>
 		<org.slf4j.version>1.7.10</org.slf4j.version>
 		<ch.qos.logback.version>1.0.13</ch.qos.logback.version>
 		<org.springframework.version>4.1.4.RELEASE</org.springframework.version>
-		<version.org.apache.cxf>3.0.3</version.org.apache.cxf>
+		<version.org.apache.cxf>3.0.4</version.org.apache.cxf>
 		<com.sun.jersey.version>1.10</com.sun.jersey.version>
 		<com.fasterxml.jackson.core.version>2.5.1</com.fasterxml.jackson.core.version>
+		<javax.persistence.version>2.1.0</javax.persistence.version>
+		<junit.version>4.11</junit.version>
+		<postgresql.version>9.1-901-1.jdbc4</postgresql.version>
+		<org.eclipse.jetty>9.3.0.M1</org.eclipse.jetty>
 	</properties>
 
 	<build>
@@ -42,6 +47,8 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+			<!-- logs -->
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
@@ -54,6 +61,8 @@
 				<version>${ch.qos.logback.version}</version>
 			</dependency>
 
+			<!-- jackson -->
+
 			<dependency>
 				<groupId>com.fasterxml.jackson.core</groupId>
 				<artifactId>jackson-databind</artifactId>
@@ -64,6 +73,8 @@
 				<artifactId>jackson-jaxrs-json-provider</artifactId>
 				<version>${com.fasterxml.jackson.core.version}</version>
 			</dependency>
+
+
 
 			<!-- Jersey -->
 			<dependency>
@@ -88,6 +99,94 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
 				<version>${org.springframework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${org.springframework.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aspects</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-web</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+
+			<!-- persistence -->
+			<dependency>
+				<groupId>javax.persistence</groupId>
+				<artifactId>persistence-api</artifactId>
+				<version>${javax.persistence.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.persistence</groupId>
+				<artifactId>javax.persistence</artifactId>
+				<version>${javax.persistence.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>4.3.8.Final</version>
+			</dependency>
+
+			<!-- more -->
+			<dependency>
+				<groupId>javax.enterprise</groupId>
+				<artifactId>cdi-api</artifactId>
+				<version>1.2</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>1</version>
+			</dependency>
+			<dependency>
+				<groupId>postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${postgresql.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+				<version>${version.org.apache.cxf}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-transports-http-jetty</artifactId>
+				<version>${version.org.apache.cxf}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.eclipse.jetty.aggregate</groupId>
+				<artifactId>jetty-all-server</artifactId>
+				<version>7.0.2.RC0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.collections</groupId>
+				<artifactId>google-collections</artifactId>
+				<version>1.0-rc2</version>
 			</dependency>
 
 		</dependencies>
