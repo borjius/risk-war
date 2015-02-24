@@ -28,9 +28,13 @@ public class LoginServiceImpl{
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public boolean login(LoginBean loginBean) {
-		log.info("Trying to log with username: " + loginBean.getUsername());
 		User user = userDao.findElement(loginBean.getUsername());
-		return (user==null) ? false : true;
+		if (user != null) {
+			log.info("Login as " + user.getUsername());
+			return true;
+		}
+		log.info("User " + loginBean.getUsername() + " does not exist");
+		return false;
 	}
 
 }

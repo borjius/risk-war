@@ -1,10 +1,20 @@
+<?php
+session_start();
+?>
 <html>
- <head>
-  <title>Risk Wars</title>
- </head>
- <body>
+<head>
+<title>Risk Wars</title>
+</head>
+<body>
 <?php
 echo '<p>Welcome to Risk Wars</p>';
+if (isset($_SESSION['login_error_message']))
+{ 
+	echo '<p><font color="red">';
+	echo $_SESSION['login_error_message'];
+	echo '</font color="red"></p>';
+	unset($_SESSION['login_error_message']);
+}
 ?>
 <table width="300" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
 <tr>

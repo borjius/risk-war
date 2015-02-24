@@ -1,5 +1,8 @@
 <?php
-
+session_start();
+if(!$_SESSION['username']){
+	header("location:index.php");
+}
 $urlLoginService='http://localhost:5555/login';
 
 // username and password sent from form
@@ -14,15 +17,15 @@ $json = json_encode($json_object);
 $result = CallAPI($urlLoginService, $json);
 
 // if user found... modify...
-if($result){
-	session_start();
+if($result == 'true'){
 	// Register $myusername, $mypassword and redirect to file "login_success.php"
 	$_SESSION['username'] = $username;
 	$_SESSION['password'] = $password;
 	header("location:login_success.php");
 }
 else {
-	echo "Wrong Username or Password";
+	$_SESSION['login_error_message'] = 'User or password incorrect';
+	header("location:index.php");
 }
 
 
