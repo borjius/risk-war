@@ -1,12 +1,40 @@
 <?php
-session_start();
-if(!$_SESSION['username']){
-header("location:index.php");
-} 
+session_start ();
+if (! $_SESSION ['username']) {
+	header ( "location:index.php" );
+}
+$result = CallAPI ( 'http://localhost:5555/countries' );
+$countries = json_decode ( $result, true );
+$dir = "../images/flags";
+$dh = opendir ( $dir );
+while ( false !== ($filename = readdir ( $dh )) ) {
+	$files [] = $filename;
+}
+$images = preg_grep ( '/\.png$/i', $files );
+
+foreach ( $countries as $country ) {
+	echo '<p>';
+	echo $country;
+	echo '</p>';
+	echo '<img src="'.$dir.'/'.$country.'.png" border="0" />';
+}
+function CallAPI($url) {
+	$ch = curl_init ( $url );
+	curl_setopt ( $ch, CURLOPT_CUSTOMREQUEST, 'GET' );
+	curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
+	curl_setopt ( $ch, CURLOPT_HTTPHEADER, array (
+			'Content-Type: application/json' 
+	) );
+	$result = curl_exec ( $ch );
+	curl_close ( $ch );
+	return $result;
+}
 ?>
 
 <html>
-<head><title>RISK WARS :: MAIN MENU</title></head>
+<head>
+<title>RISK WARS :: MAIN MENU</title>
+</head>
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script>
 function initialize() {
@@ -42,12 +70,12 @@ function initialize() {
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <body>
-<?php 
+<?php
 echo '<p><font color="blue">Hello ';
-echo $_SESSION['username'];
+echo $_SESSION ['username'];
 echo '</font color="red"></p>';
 ?>
-<div id="googleMap" style="width:700px;height:600px;"></div>
+<div id="googleMap" style="width: 700px; height: 600px;"></div>
 </body>
 </html>
 </html>
